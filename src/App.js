@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import List from './List';
+import Form from './Form';
 
 export default class App extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ export default class App extends Component {
     }
 
     onChange = (event) => {
-        this.setState({ term: event.target.value });
+        this.setState({ term: term + 'hello ' });
     }
 
     onSubmit = (event) => {
@@ -25,10 +26,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <form className="App" onSubmit={this.onSubmit}>
-                    <input value={this.state.term} onChange={this.onChange} />
-                    <button>Submit</button>
-                </form>
+                <Form onSubmit={this.onSubmit} onCange={this.onChange}/>
                 <List items={this.state.items} />
             </div>
         );
